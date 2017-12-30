@@ -1,0 +1,17 @@
+3.7.1
+JSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据格式。
+简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。
+
+3.7.2 json语法
+对象表示为键值对 key:value
+数据由逗号分隔
+花括号保存对象 {key:value}
+方括号保存数组  [ {key:value} ]
+
+3.7.3 JSON 和 JS 对象互转
+要实现从对象转换为 JSON 字符串，使用 JSON.stringify() 方法：
+1
+var json = JSON.stringify({a: 'Hello', b: 'World'}); //结果是 '{"a": "Hello", "b": "World"}'
+要实现从 JSON 转换为对象，使用 JSON.parse() 方法：
+1
+var obj = JSON.parse('{"a": "Hello", "b": "World"}'); //结果是 {a: 'Hello', b: 'World'}

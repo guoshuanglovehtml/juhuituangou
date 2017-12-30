@@ -1,0 +1,8 @@
+2.5 HBuilder
+2.5.1 HBuilder基本介绍
+HBuilder是DCloud（数字天堂）推出的一款支持HTML5的Web开发IDE。
+快，是HBuilder的最大优势，通过完整的语法提示和代码输入法、代码块等，大幅提升HTML、js、css的开发效率。
+
+2、使用
+HBuilder和sublime text在HTML5的Web开发上的效果是一样的，这里用到的是HBuilder的打包功能，
+将编写好的HTML5页面打包为原生App的安装包，然后发行使用

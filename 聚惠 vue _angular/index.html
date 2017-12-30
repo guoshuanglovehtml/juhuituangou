@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>juhui</title>
+    <meta charset="utf-8"/>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+</head>
+<body>
+
+<!-- 容器 -->
+<ul id="app">
+    <!-- 循环创建 类似 for in-->
+    <li v-for="itm in datas.items">
+                         <!-- 数据绑定 -->
+        <a href="#"><img v-bind:src="'http://juhuituan.boguyuan.com/juhuituan'+itm.img"></a>
+        
+                         <!-- 取数据 -->
+        <h3 class="titie">{{itm.ti}}</h3>
+    </li>
+</ul>
+
+
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+    var vue = new Vue(
+    {
+        el:"#app",
+        data:{
+            datas:""
+        },
+        created:function (argument) 
+        {
+            var that = this; 
+
+            $.ajax({
+                type:"post",// get
+                url:"http://juhuituan.boguyuan.com/juhuituan/reqData?action=listPro&acode=1&uid=25177&type=1",
+                dataType:"json",
+                // jsonpCallback:"cb",
+                success:function (data) {
+                    console.log(data.data);
+                    that.datas = data.data;
+                },
+                error:function(er){  
+                    // console.log(er);
+                }
+
+            })
+        }
+    });
+</script>
+
+
+</body>
+</html>

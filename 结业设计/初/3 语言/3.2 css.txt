@@ -1,0 +1,23 @@
+1、选择器  选中 元素标签
+id 选择器、类选择器、标签选择器  其他 后代
+
+2、将样式表加入到网页
+
+链接外部样式表：为了 html  css 分离
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+
+内嵌式 ：分离  对比好写 不用拖上拖下
+        在HTML的<head>和</head>标记之间插入一个<style type="text/css">...</style>对象
+
+语法：选择器、属性和属性值
+
+  body {
+                color: blue;
+        }
+
+行内样式：不分离
+        是在对象的标记内使用对象的style属性定义适用其的样式表属性。示例如下：
+        <p style=“color: #000; line-height: 20px”>…</p>
+
+优先级： 行内样式优先级最高，其次是内嵌式，再次是链接样式，

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript" src= "js/jquery-3.1.1.min.js"></script>
+
+<script type="text/javascript">
+	
+var Url="http://juhuituan.boguyuan.com/juhuituan/reqData?";
+// var url = "http://juhuituan.boguyuan.com/juhuituan";
+
+$.get(Url+"action=search&acode=1&con=正餐", 
+function (data) 
+{
+	var a = data;
+	console.log(a);
+	console.log(a.data.items[1].img);
+},"json");
+</script>
+<!-- 760047 -->
+
+<!-- 111111  密码 -->
+
+<!-- 25177 uid -->
+<!-- {"data":{"uid":25177,"pwd":"111111","telephone":"15902609783","un":"15902609783"},"code":100,"msg":"注册成功！"} -->
+</body>
+</html>
