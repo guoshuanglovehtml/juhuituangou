@@ -10,9 +10,12 @@ html{
 
 body{
 	height: 100%;
+	
+	/*width: 768px;*/
 	max-width: 768px;
 	margin: 0 auto;
-	background-color:#ccc;
+	background-color: rgb(249,249,249);
+
 	box-sizing:border-box;
 }
 
@@ -26,10 +29,20 @@ ul{
 img{
 	display: block;
 }
+.bg{
+	width: 100%;
+	height: 100%;
+	background-color: rgb(249,249,249);
+}
+
+
 .hot_top{
 	width: 100%;
 	height: 100%;
-	background-color: #ccc;
+	/*background-color: #ccc;*/
+	background-color: rgb(249,249,249);
+	/*background-color: red;*/
+
 }
 .hot_top .hot_nav{
 	width: 100%;
@@ -37,6 +50,8 @@ img{
 	line-height: 3em;
 	text-align: center;
 	background-color:#fd9395;
+	/*background-color: rgb(249,249,249);*/
+
 }
 .hot_top .hot_nav .hot_search{
 	width: 100%;
@@ -56,70 +71,110 @@ img{
 	top:3px;
 	right:5px;
 }
-.hot_top .hot_msg{
+
+.hot_top ul.list{
+	background-color: rgb(249,249,249);
+	height:100%;
 	width: 100%;
+	padding-left: 10px;
+	padding-right: 10px;
+
+	/*position: relative;*/
+	/*top: -10px;*/
+
 }
-.hot_top .hot_msg{
+.list li{
+	border: 1px #ccc solid;
 	width: 100%;
-	padding:5px;
-	height: 120px;
 	position: relative;
+	padding: 5px;
+	/*padding-top: 10px;*/
+	/*padding-bottom: 10px;*/
+
 	background-color: #fff;
-	border:1px solid #ccc;
+	margin-bottom: 10px;
 }
 
-.hot_top .hot_msg img{
-	position: absolute;
-	height:108px;
-	width:45%;
+.list li img{
+	width: 36%;
 }
-.hot_top .hot_msg .appoint{
-	z-index: 999;
-	width:16%;
-    
-}
-.hot_top .hot_msg .right{
-	width: 50%;
+.list li  img.appoint{
 	position: absolute;
-	top:0;
-	height: 115px;
+	/*top: 10px;*/
+	width: 20%;
+}
+
+.list li  p{
+
+	width: 62%;
+
+	position: absolute;
+	top: 2px;
 	right: 0;
-}
-.tit{
-  white-space: nowrap;
-  text-overflow:ellipsis;
-  overflow: hidden;
+	font-size: 15px;
+	color: #333;
 }
 
-.hot_top .hot_msg .right p{
-	font-size: 14px;
-	height:34px;
+
+.list li  p:nth-child(3){
+	white-space: nowrap;
+	text-overflow:ellipsis;
+
 	overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient: vertical;
+
+	font-weight: bold;
+	/*width: 58%;*/
+
 
 }
-.hot_top .hot_msg .right span{
-  position: absolute;
-  bottom: 0;
+
+/*多行溢出省略...*/
+.list li  p:nth-child(4){
+	top:26%;
+	height: 42px;
+	/*font-size: 14px;*/
+	
+
+
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+
+	text-overflow:ellipsis;
+	overflow: hidden;
+
+	/*width: 57%;*/
 }
-.hot_top .hot_msg .right .num{
-  right: 5px;
+
+.list li  p:nth-child(5){
+	top: 76%;
+	/*position: relative;*/
+	font-size: 12px;
 }
-.hot_top .hot_msg .right .fpri{
-	color: #f76075;
+
+.mation span:nth-child(1){
+	color: red;
+	font-weight: bold;
+	font-size: 13px;
 }
-.hot_top .hot_msg .right .line{
-	left: 40px;
+
+.mation span:nth-child(2){
+	/*text-decoration: line-through;*/
+	color: #999;
 }
-.hot_top .hot_msg .right .pri{
-	font-size: 14px;
-	color: gray;
-	left:50px;
+
+.mation span:nth-child(3){
 	text-decoration: line-through;
+	color: #999;
 }
+
+.mation span:nth-child(4){
+	position: absolute;
+	right: 4px;
+}
+
+
+
 /*底部切换样式*/
 /*底部*/
 .bottom_nav{
@@ -130,7 +185,9 @@ img{
 	position: fixed;
 	bottom: 0;
 
-	background-color: rgb(249,249,249);
+	background-color: rgb(255,255,255);
+	padding-top: 4px;
+
 }
 
 .bottom_nav ul{
@@ -141,13 +198,14 @@ img{
 	width: 20%;
 	height: 100%;
 	float: left;
+	text-align: center;
 }
 
 .bottom_nav li.naver{
 	border-bottom: 3px red solid;
 }
 
-.bottom_nav li img,.bottom_nav li span{
+/*.bottom_nav li img,.bottom_nav li span{
 	display: block;
 	width: auto;
 	margin: 0 auto;
@@ -156,23 +214,26 @@ img{
 .container{
 	padding: 0;
 	margin: 0;
-}
+}*/
 
 .bottom_nav li img{
-	width: 40%;
+	/*width: 40%;
 	height: 50%;
-	margin-top: 10%;
+	margin-top: 10%;*/
+	width: 24px;
+	margin: 0 auto;
+
 }
 
-.bottom_nav li span{
+/*.bottom_nav li span{
 	margin-left: 33%;
 	font-size: 0.5em;
 	color: #000000;
 }
+*/
 
 
-
-
+/*
 @media only screen and (min-width: 750px)
 {  
 	
@@ -220,7 +281,7 @@ img{
     {
 		margin-left: 31%;
 	}
-}
+}*/
 /*团购详情顶部部分*/
 .sales_top{
 	width:100%;
@@ -247,13 +308,17 @@ img{
 }
 .sales_top .share{
   float: right;
-  height: 30px;
+  height: 25px;
   margin-right: 5px;
+  margin-top: 5px;
+
 }
 .sales_top .select{
   float: right;
-  height: 30px;
+  height: 25px;
   margin-right: 5px;
+  margin-top: 5px;
+
 }
 .sales_top span{
 	color:white;
@@ -335,6 +400,7 @@ img{
 	outline: none;
 	resize:none;
 	overflow-y:visible;
+	border: none;
 
 }
 .sales_bottom ul li .textarea_scond{
@@ -376,6 +442,7 @@ img{
 .link{
 	width: 100%;
 	height:700px;
+	border: none;
 }
 .texts_bottom{
 	height: 30px;

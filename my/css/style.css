@@ -13,7 +13,8 @@ body {
 	font-family: '微软雅黑'; 
 	color:#666; 
     height: 100%;
-	width:100%; 
+	/*width:100%; */
+	max-width: 768px;
 	margin: 0 auto;
 	cursor:default; 
 	word-break:break-all;  

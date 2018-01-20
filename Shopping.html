@@ -14,73 +14,75 @@
 
 <!-- 首页 （第一层）-->
 <script type="text/template" id="home">
-<div class="home-page">
-
-   <!-- 头部-->
-         <div class="shang">商家展示
+    <div class="home-page">
+        <!-- 头部-->
+        <div class="shang">商家展示
              <a href="#search">
                  <img src="img/icon_search.png">
              </a>
-         </div>
-   <!-- 首页大图-->
-     <div class="banner_bg">
-         <ul class="banner">
-             <li v-for="item in banner.items" v-on:click="clickIndex(item.productId)">
+        </div>
+        <!-- 首页大图-->
+        <div class="banner_bg">
+             <ul class="banner">
+                 <li v-for="item in banner.items" v-on:click="clickIndex(item.productId)">
 
-                 <a href="#product/{{item.id}}">
-                 <img v-bind:src="item.imgUrl">
-                 </a>
-              </li>
-         </ul>
-     </div> 
-     <!-- 首页七张小图-->
-       <ul class="ad">
-		<li v-for="item in adt.items" v-on:click="clickIndex(item.cateId)">
-		    <a href="#list/{{item.id}}">
-				<img v-bind:src="item.imgUrl">
-				<p></p>
-			</a>
-		</li>
-	</ul>    
-</div>
-<!-- 底部 -->
-<div class="bottom_nav container">
-        <ul>
-            <a href="index.html">
-                <li class="">
-                    <img src="img/tg_normal.png" class=""/>
-                    <span>团购</span>
-                </li>
-            </a>
+                     <a href="#product/{{item.id}}">
+                     <img v-bind:src="item.imgUrl">
+                     </a>
+                  </li>
+             </ul>
+        </div> 
 
-            <a href="hot_list.html">
-                <li class="">
-                    <img src="img/rm_normal.png" class=""/>
-                    <span>热卖</span>
-                </li>
-            </a>
+        <!-- 首页七张小图-->
+        <ul class="ad">
+    		<li v-for="item in adt.items" v-on:click="clickIndex(item.cateId)">
+    		    <a href="#list/{{item.id}}">
+    				<img v-bind:src="item.imgUrl">
+    				<!-- <p></p> -->
+    			</a>
+    		</li>
+	    </ul>  
 
-            <a href="Shopping.html">
-                <li class="naver">
-                    <img src="img/merchant_icon_select.png" class="navImg "/>
-                    <span>逛街</span>
-                </li>
-            </a>
 
-            <a href="my/login home.html">
-                <li class="">
-                    <img src="img/user_normal.png" class="img-responsive navImg"/>
-                    <span>我的</span>
-                </li>
-            </a>
+    <!-- 底部 -->
+    <div class="bottom_nav container">
+            <ul>
+                <a href="index.html">
+                    <li class="">
+                        <img src="img/tg_normal.png" class=""/>
+                        <span>团购</span>
+                    </li>
+                </a>
 
-            <a href="more.html">
-                <li class="">
-                    <img src="img/more_normal.png" class=" "/>
-                    <span>更多</span>
-                </li>
-            </a>
-        </ul>
+                <a href="hot_list.html">
+                    <li class="">
+                        <img src="img/rm_normal.png" class=""/>
+                        <span>热卖</span>
+                    </li>
+                </a>
+
+                <a href="Shopping.html">
+                    <li class="naver">
+                        <img src="img/merchant_icon_select.png" class="navImg "/>
+                        <span>逛街</span>
+                    </li>
+                </a>
+
+                <a href="my/login home.html">
+                    <li class="">
+                        <img src="img/user_normal.png" class="img-responsive navImg"/>
+                        <span>我的</span>
+                    </li>
+                </a>
+
+                <a href="more.html">
+                    <li class="">
+                        <img src="img/more_normal.png" class=" "/>
+                        <span>更多</span>
+                    </li>
+                </a>
+            </ul>
+    </div>
     </div>
 
 </script>
@@ -90,12 +92,12 @@
 <script type="text/template" id="product">
     <div class="product-page">
         <div class="last">
-       <a href=""onclick="javascript:history.back(-1);">
+       <a href="" onclick="javascript:history.back(-1);">
        <img src="img/nav_back.png" class="blacks"style="width:30px;height:30px;margin-top: 15px;margin-left: 2px;" id="adss"/>
        </a>
        
         <img src="img/nav_icon.png" class="blacks" id="ads"/>
-        <p>商品详情</p>  
+        商品详情  
     </div>
         <ul class="details">
             <li v-for="item in details.items">
@@ -149,7 +151,7 @@
         <div class="list-page">
         <div class="last">
        <a href=""onclick="javascript:history.back(-1);">
-       <img src="img/nav_back.png" class="blacks"style="width:30px;height:30px;margin-top: 15px;margin-left: 2px;" id="adss"/>
+       <img src="img/nav_back.png" class="blacks" style="width:30px;height:30px;margin-top: 15px;margin-left: 2px;" id="adss"/>
        </a>
        
         <img src="img/nav_icon.png" class="blacks" id="ads"/>

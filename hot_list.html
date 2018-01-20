@@ -17,80 +17,89 @@
     </style>
 </head>
 <body>
-     <div id="app">
+    <div id="app">
        <component v-bind:is="view"></component>
-     </div>
+    </div>
 
 
-     <!-- 模版一的选择 -->
-     <script type="text/template" id="home">
-      <div class="hot_top">
-         <ul class="hot_nav">
-           <li class="hot_search">
-             <span>热卖</span>
-             <a href="javascript:;">
-             <img src="img/icon_search.png" alt="" title="搜索" class="sech_pic">
-             </a>
-           </li>
-         </ul>
-         <ul>
-           <li v-for="item in data.items" class="hot_msg" v-on:click="clickIndex(item.id)">
-           <a href="#list/{{item.id}}">
-            <img src="img/not_appoint.png" class="appoint" alt="">
-            <img v-bind:src="'http://juhuituan.boguyuan.com/juhuituan'+item.img" alt="">
-            <div class="right">
-             <h4 class="tit">{{item.ti}}</h4>
-             <p class="hot_con">{{item.con}}</p>
-             <span class="fpri">{{item.fpri}}</span>
-             <span class="line">/</span>
-             <span class="pri">{{item.pri}}</span>
-             <span class="num">{{item.num}}人</span>
-            </div>
-            </a>
-           </li>
-         </ul>
-      </div>
-      <div class="bottom_nav container">
-        <ul>
-          <a href="index.html">
-            <li class="">
-              <img src="img/tg_normal.png" class=""/>
-              <span>团购</span>
-            </li>
-          </a>
+    <!-- 模版一的选择 -->
+    <script type="text/template" id="home">
+        <div class="bg">
+        <div class="hot_top">
+            <ul class="hot_nav">
+                <li class="hot_search">
+                     <span>热卖</span>
+                     <a href="javascript:;">
+                     <img src="img/icon_search.png" alt="" title="搜索" class="sech_pic">
+                     </a>
+                </li>
+            </ul>
 
-          <a href="hot_list.html">
-            <li class="naver">
-              <img src="img/rm_select.png" class=""/>
-              <span>热卖</span>
-            </li>
-          </a>
+            <ul class="list">
+               <li v-for="item in data.items" class="hot_msg" v-on:click="clickIndex(item.id)">
+                   <a href="#list/{{item.id}}">
+                        <img src="img/not_appoint.png" class="appoint" alt="">
+                        <img v-bind:src="'http://juhuituan.boguyuan.com/juhuituan'+item.img" alt="">
+                        
+                        <p>{{item.ti}}</p>
 
-          <a href="Shopping.html">
-            <li class="">
-              <img src="img/merchant_icon_normal.png" class=" "/>
-              <span>逛街</span>
-            </li>
-          </a>
+                        <p>{{item.con}}</p>
 
-          <a href="my/login home.html">
-            <li class="">
-              <img src="img/user_normal.png" class="img-responsive navImg"/>
-              <span>我的</span>
-            </li>
-          </a>
+                        <P class="mation">
+                            <span>￥{{item.fpri}}</span>
+                            <span>/</span>
+                            <span>{{item.pri}}</span>
 
-          <a href="more.html">
-            <li class="">
-              <img src="img/more_normal.png" class=" navImg"/>
-              <span>更多</span>
-            </li>
-          </a>
-        </ul>
-      </div>
+                            <span>{{item.num}}人</span>
+                        </P>
+                    </a>
+               </li>
+            </ul>
+        </div>
 
-     </script>
-     <!-- 团购详情部分 -->
+        <div class="bottom_nav container">
+            <ul>
+              <a href="index.html">
+                <li class="">
+                  <img src="img/tg_normal.png" class=""/>
+                  <span>团购</span>
+                </li>
+              </a>
+
+              <a href="hot_list.html">
+                <li class="naver">
+                  <img src="img/rm_select.png" class=""/>
+                  <span>热卖</span>
+                </li>
+              </a>
+
+              <a href="Shopping.html">
+                <li class="">
+                  <img src="img/merchant_icon_normal.png" class=" "/>
+                  <span>逛街</span>
+                </li>
+              </a>
+
+              <a href="my/login home.html">
+                <li class="">
+                  <img src="img/user_normal.png" class="img-responsive navImg"/>
+                  <span>我的</span>
+                </li>
+              </a>
+
+              <a href="more.html">
+                <li class="">
+                  <img src="img/more_normal.png" class=" navImg"/>
+                  <span>更多</span>
+                </li>
+              </a>
+            </ul>
+        </div>
+        </div>
+
+    </script>
+
+    <!-- 团购详情部分 -->
   <script type="text/template" id="list">
     <div class="sales_top"> 
        <a href="javascript:;"onclick="javascript:history.back(-1);">
