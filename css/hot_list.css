@@ -65,10 +65,10 @@ img{
 }
 .hot_top .hot_nav .hot_search a,.sech_pic{
 	float:right;
-	height: 40px;
-	width: 40px;
+	height: 30px;
+	width: 30px;
 	position: relative;
-	top:3px;
+	top:5px;
 	right:5px;
 }
 
