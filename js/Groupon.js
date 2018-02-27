@@ -23,8 +23,12 @@
 		{
 			return {
 				banner:"",
+				banner2:"",
+
 				ad:"",
+
 				list:"",
+
 				more:""
 
 				// 商品详情
@@ -43,10 +47,15 @@
 				dataType:"json",
 				success:function (data) 
 				{
-					// console.log(data.data.items);
-					that.banner = data.data;
+					// console.log(data.data.items[0]);
+					// that.banner[0] = data.data.items[0];
+					that.banner = data.data.items;
+
 				}
 			});
+
+
+
             
             // ad 八大模块
             // 1
@@ -97,45 +106,9 @@
 			list.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			list.send("action=listPro&acode=1&uid=25177&type=1");
 
-			// 入口函数  动画
-			setTimeout(function () 
-			{
-				$(".ready").animate({left:"-100%"},function () 
-					{	
-						$(this).remove();// 达不到手机的效果  刷新就出来 可以不要
-						$(".main").show();
-
-						// 轮播
-						// var ul = $(".banner");
-						// var li1 = $(".banner li:last");
-						// console.log(li1);
-
-						// var left = li1.offset().left;
-						// console.log(left);
-
-						// // setInterval(function () 
-						// // {
-						// 	ul.animate({left:"-100%"},function () 
-						// 	{
-						// 		li1.offset().left;
-						// 		console.log(left);
-						// 	});
-					    	// ul.animate({left:"0"});
-						// },2000);     				
-					});
-			},100);
+			
             
-            // 调用函数  轮播  在此 延时
-			// setTimeout(function (argument) {
-			// 	 var ul = $(".banner");
-            //   var liImg = $(".banner li");
-
-            //   console.log(ul)
-
-            //   ul.append(ul.find("li:first"));
-			// },1);
-
-			// console.log("xx");
+            
 	
 		},
 		// Vue实例方法
@@ -183,6 +156,10 @@
 		computed:function () 
 		{
 			// body...
+			setTimeout(function () {
+				that.banner[0] = that.banner2[1];
+				console.log(that.banner2)
+			},1000) ;
 		}
 
 	});
@@ -490,6 +467,10 @@
     // 第三模板 商品详情 
     // 传入参数 获取数据
     var Index_; 
+
+    var collect = "collect";
+	var collectArr = [];
+
     var product = Vue.extend(
     {
     	template: Util.tpl('product'),
@@ -536,16 +517,6 @@
 			// comdity_data();
             
 
-            // 当前刷新展示
-            // window.location.reload();
-     //          window.location.reload = function function_name(argument) {
-     //          	// body...
-     //          };
-			// window.onload = function (argument) 
-			// {
-			// };
-
-
 		},
 
 		methods:{
@@ -569,6 +540,22 @@
 
 				// console.log(order_ti);
 				// console.log(order_pfri);
+			},
+			collect:function (argument) {
+				var id = this.details[0].id;
+
+				$(".coll_before").attr("src","img/collect.png");
+				$.ajax({
+					type:"post",
+					url:"http://juhuituan.boguyuan.com/juhuituan/reqData?action=addCollect&acode=1&uid=25177&id="+id,
+					dataType:"json",
+					success:function (data) 
+					{
+						console.log(data);
+					}
+				});
+
+				alert("收藏成功");
 			}
 
 
@@ -686,37 +673,17 @@
 			var that = this;
 			// console.log(con);
 
-
-			var xhr = new XMLHttpRequest();
-			xhr.onreadystatechange = function (argument) 
-			{
-				if (xhr.readyState == 4) 
+			$.ajax({
+				type:"get",
+				url:"http://juhuituan.boguyuan.com/juhuituan/reqData?"+
+				"action=search&acode=1&con="+con,
+				dataType:"json",
+				success:function (data) 
 				{
-					var d1 = xhr.responseText;
-					// console.log("d1");
-					var d2 = JSON.parse(d1).data;
-					// console.log(d2);
-
-					that.seach_data = d2;
-                    
-	                
+					console.log(data.data.items);
+					that.seach_data = data.data.items;
 				}
-			};
-
-			// 3
-			var url = "http://juhuituan.boguyuan.com/juhuituan/reqData?";
-			xhr.open("post",url,true);
-			xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            
-            // 总
-			// if (con=="") 
-			// {
-			//    xhr.send("action=listPro&acode=1&uid=25177&type=1");	
-			// }
-			// else{
-				xhr.send("action=search&acode=1&con="+con)
-			// }
-
+			});
 		},
 
 		// 传入  商品详情

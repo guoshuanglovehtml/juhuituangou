@@ -9,10 +9,7 @@
     <link rel='stylesheet' href='../css/style.css'>
     <link rel='stylesheet' href='../css/swiper.min.css'>  
 	  
-    <script src="../js/jquery.1.11.1.js"></script>
-    <script src="../js/swiper.min.js"></script>  
-    <script src="../js/idangerous.swiper.min.js"></script> 
-    <script type="text/javascript" src="../js/no payment.js"></script>
+    
 	
     <title>收藏</title>
 </head>
@@ -50,37 +47,45 @@
    <!-- 内容开始 -->
    <div class="swiper-container favor-list drag">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="../img/pic1-favor.png">
-                <p>暂无数据</p>
+            <div class="" id="app">
+                <ul>
+                    <li>{{}}</li>
+                </ul>
             </div>
 
             <div class="swiper-slide margin19">
-                <img src="../img/pic1-favor.png">
-                <p>暂无数据......</p>
+                <!-- <img src="../img/pic1-favor.png"> -->
+                <!-- <p>暂无数据......</p> -->
             </div>          
         </div>
    </div>
 <!--    内容结束 -->
+    <script src="../js/jquery.1.11.1.js"></script>
+    <script src="../js/swiper.min.js"></script>  
+    <script src="../js/idangerous.swiper.min.js"></script> 
+    <script type="text/javascript" src="../js/no payment.js"></script>
+    
+    <script src="../js/vue.js"></script>
+    <script src="../js/collect.js">
+    </script>
 
-   <script type="text/javascript">
-    var mySwiper = new Swiper('.swiper-container',{
-        autoHeight: true,
-        onSlideChangeStart: function(){
-          $(".tabs .default").removeClass('default');
-          $(".tabs li").eq(mySwiper.activeIndex).addClass('default');
-        }
-    });
-     $(".tabs li").on('click',function(e){
-        e.preventDefault();
-        $(".tabs .default").removeClass('default');
-        $(this).addClass('default');
-        mySwiper.swipeTo($(this).index());
-      });
-      $(".tabs li").click(function(e){
-        e.preventDefault();
-      });
-
+    <script type="text/javascript">
+        var mySwiper = new Swiper('.swiper-container',{
+            autoHeight: true,
+            onSlideChangeStart: function(){
+              $(".tabs .default").removeClass('default');
+              $(".tabs li").eq(mySwiper.activeIndex).addClass('default');
+            }
+        });
+         $(".tabs li").on('click',function(e){
+            e.preventDefault();
+            $(".tabs .default").removeClass('default');
+            $(this).addClass('default');
+            mySwiper.swipeTo($(this).index());
+          });
+          $(".tabs li").click(function(e){
+            e.preventDefault();
+          });
     </script>
 </body>
 </html>

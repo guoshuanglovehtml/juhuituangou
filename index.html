@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-	<title>团购首页</title>
+	<title>聚惠团购</title>
 
 	<meta name="format-detection" content="telephone=no"/>
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
@@ -27,8 +27,7 @@
 <!-- 模板一 首页-->
 <script type="text/template" id="home">
 <div class="home-page">
-    <!-- <img src=""> 入口动画-->
-	<img src="img/splash.png" style="max-width: 768px;" class="ready">
+    <!-- 引导页 由hbder打包生成-->
 
 	<div class="main">
 	    <div class="top">
@@ -47,13 +46,14 @@
 	    <div class="banner_bg" >
 		    <ul class="banner">
 		        <!-- <a href="#"> -->
-					<li v-for="itm in banner.items" v-on:click="clickId(itm.inid)" class="{{itm.inid}}">
+					<li v-for="itm in banner" v-on:click="clickId(itm.inid)" class="{{itm.inid}}">
 					    <a href="#product/{{itm.inid}}">
 							<img v-bind:src="'http://juhuituan.boguyuan.com/juhuituan'+itm.img">
 						</a>
 					</li>
 			    <!-- </a> -->
 			</ul>
+			<!-- <div>{{banner[0]}}</div> -->
 		</div>
 	    
 	    <!-- 跳到所有商品 分类-->
@@ -308,8 +308,8 @@
 	        
 
 	        <!-- 收藏 -->
-	        <img src="img/uncollect.png" class="coll_before">
-	        <img src="img/collect.png" class="coll_after">
+	        <img src="img/uncollect.png" class="coll_before" v-on:click="collect()">
+	        <!--<img src="img/collect.png" class="coll_after">-->
 
 		    <!-- 分享 -->
 		    <img src="img/share.png" class="share">
@@ -458,7 +458,7 @@
 	<div class="product_top">搜索结果
     
         <!-- 返回上一层 -->
-	    <a href="#seach" id="" onclick="javascript:history.back(-1);">
+	    <a href="javascript:;" id="" onclick="javascript:history.back(-1);">
 	    	<img src="img/nav_back.png" class="back" >
 
 		    <img src="img/nav_icon.png" class="logo" >
@@ -476,21 +476,20 @@
 
     <!-- 搜索结果 商品列表  去往商品详情-->
     <div class="re_all">
-		<li v-for="itm in seach_data.items" v-on:click="click_seach_Index(itm.id)">
+		<li v-for="itm in seach_data" v-on:click="click_seach_Index(itm.id)">
 		    <a href="#/product/{{itm.id}}">
 				<img v-bind:src="'http://juhuituan.boguyuan.com/juhuituan'+itm.img">
 
 				<p>{{itm.ti}}</p>
+				<p>{{itm.con}}</p>
 
-						<p>{{itm.con}}</p>
+				<P class="all_mation">
+					<span>￥{{itm.fpri}}</span>
+				    <span>/</span>
+				    <span>{{itm.pri}}</span>
 
-						<P class="all_mation">
-							<span>￥{{itm.fpri}}</span>
-						    <span>/</span>
-						    <span>{{itm.pri}}</span>
-
-						  <span>{{itm.num}}人</span>
-				        </P>
+				  <span>{{itm.num}}人</span>
+		        </P>
 			</a>
 		</li>
 	</div>
