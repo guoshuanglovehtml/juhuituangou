@@ -500,7 +500,7 @@
 	                    
 		                var proArry = [];
 						proArry.push(d2);
-						// console.log(proArry);
+						console.log(proArry);
 
 						that.details = proArry;
 					}
@@ -521,7 +521,7 @@
 
 		methods:{
 			// 到 图文详情
-			clickUrl(url,fpri,pri,ti){
+			clickUrl(url,fpri,pri,ti,id){
 				link = url;
 				// console.log("link");
 				fpri_ = fpri;
@@ -529,19 +529,21 @@
 
 
 				ti_ = ti;
+				me_id = id;
 			},
 			back(){
 				history.back();
 			},
 			// 到订单
-			go_order_form(ti,fpri){
+			go_order_form(ti,fpri,id){
 				order_ti= ti;
 				order_pfri = fpri;
+				order_id = id;
 
 				// console.log(order_ti);
 				// console.log(order_pfri);
 			},
-			collect:function (argument) {
+			collect:function (argument) { //收藏
 				var id = this.details[0].id;
 
 				$(".coll_before").attr("src","img/collect.png");
@@ -551,20 +553,16 @@
 					dataType:"json",
 					success:function (data) 
 					{
-						console.log(data);
+						alert(data.msg);
 					}
 				});
-
-				alert("收藏成功");
 			}
-
-
 		}
 
     });
 
     //  4 模板四 图文详情    从商品详情 而来 -->
-    var link,fpri_,pri_,ti_;
+    var link,fpri_,pri_,ti_,me_id;
     var image_text = Vue.extend(
     {
     	template:Util.tpl("image_text"),
@@ -576,7 +574,8 @@
     				links:link,
     				fpri:fpri_,
     				pri:pri_,
-    				ti:ti_ // 到订单 项目标题
+    				ti:ti_, // 到订单 项目标题
+    				id:me_id
     			}]
     		}
     		
@@ -592,9 +591,10 @@
 			},
 
 			// 去订单
-			go_order_form(ti,fpri){
+			go_order_form(ti,fpri,id){
 				order_ti=ti;
 				order_pfri = fpri;
+				order_id = id;
 
 				// console.log(order_ti);
 				// console.log(order_pfri);
@@ -681,7 +681,7 @@
 				success:function (data) 
 				{
 					console.log(data.data.items);
-					that.seach_data = data.data.items;
+					// that.seach_data = data.data.items;
 				}
 			});
 		},
@@ -695,7 +695,7 @@
 	});
 
 	// 模板五 商品详情 来到  抢购订单
-    var order_ti,order_pfri;
+    var order_ti,order_pfri,order_id;
     // var num = 1;
     var order_form = Vue.extend(
     {
@@ -708,6 +708,7 @@
     		    {
     				orti:order_ti,// 项目
     				pfri:order_pfri,// 单价
+    				id:order_id,
 
     				num:1,//数量
     				all: order_pfri //总价
@@ -766,15 +767,34 @@
 				that.order_form[0].num = num;
 			},
 
-			// 去支付
-			go_pay(ti,pri,num,all)
+			// 去支付  提交订单
+			go_pay(ti,pri,num,all,id)
 			{   
 
+				// 去支付
 				p_ti = ti;
 				p_pfri = pri;
 				p_num = num;
 				p_all = all;
+				p_id = id;
 
+				var obj = this.order_form[0];
+				// console.log(obj);
+
+				// 提交订单
+				$.ajax({
+    				post:"post",
+    				dataType:"json",
+    				url:"http://juhuituan.boguyuan.com/juhuituan/reqData?action=addOrd&acode=1&uid=25177"+
+    				"&id="+obj.id+
+    				"&zpri="+obj.all+
+    				"&num="+obj.num,
+    				success:function (data) 
+    				{
+    					alert(data.msg)
+    				}
+
+    			})
 		
 			}
 
@@ -782,7 +802,7 @@
     });
  
     // 模板八 确认订单 支付
-    var p_ti,p_pfri,p_num,p_all;
+    var p_ti,p_pfri,p_num,p_all,p_id;
     var payment = Vue.extend(
     {
     	template:Util.tpl("payment"),

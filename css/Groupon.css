@@ -204,7 +204,7 @@ img{
 .list li,#list li {
 	margin-bottom: 10px;
 	border: 1px #ccc solid;
-	width: 100%;
+	/*width: 100%;*/
 	position: relative;
 	padding: 5px;
 

@@ -1,6 +1,7 @@
 *{
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 ul{
 	list-style: none;
@@ -31,23 +32,28 @@ body{
 	width: 8%;
 	height: 3em;
     float: left;
+    position: relative;
 }
 .header .right img{
-	height: 35px;
-	position: relative;
-	top: 10%
+	/*height: 35px;*/
+	position: absolute;
+	top: 30%;
+	width:14px;
+	left: 10%;
 
 }
 .header .nav_icon{
 	width: 20%;
 	height: 3em;
 	float: left;
+	position: relative;
 }
 .header .nav_icon img{
-	width: 100%;
-	height: 45px;
-	position: relative;
-	top: 5%
+	width: 80px;
+	/*height: 45px;*/
+	position: absolute;
+	left: -10px;
+	top: 10px;
 }
 .header .my{
 	width: 30%;
@@ -79,15 +85,85 @@ body{
     font-size: 1.2em;
     display: none;
 }
-.drag{
-	overflow: hidden;
-    text-align: center;
-    position: relative;
-    padding: 40% 0%;
+
+
+/*列表*/
+.home{
+	padding: 10px;
 }
-.drag p{
-    font-size: 1.2em;
-    color: #ccc;
+.noData{
+	width: 100%;
+	text-align: center;
+}
+div.list{
+
 }
 
-/*页面结束*/
+
+.list li{
+	background-color: #fff;
+	border: 1px #ccc solid;
+	margin-bottom: 10px;
+}
+
+li .content{
+	padding: 10px;
+	position: relative;
+	border-bottom: 1px #ccc solid;
+}
+
+
+.content img{
+	width: 36%;
+}
+
+.content div.explain{
+	width: 61%;
+	position: absolute;
+	right: 0;
+}
+
+li .choice{
+	height: 40px;
+	line-height: 40px;
+}
+
+.choice div{
+	float: left;
+	text-align: center;
+	height: 100%;
+}
+
+.choice .cancel{
+	width: 40%;
+	border-right: 1px #ccc solid;
+}
+.cancel img{
+	width: 20px;
+	position: relative;
+	top: -6px;
+	left: -8px;
+}
+
+.choice div.sure{
+	width: 60%;
+	text-align: center;
+}
+
+div.sure div{
+	width: 60%;
+	margin: 0 auto;
+	background-color: red;
+	position: relative;
+	left: 20%;
+	height: 84%;
+	top: 8%;
+	line-height: 34px;
+	color: #fff;
+}
+div.sure div img{
+	width: 20px;
+	position: relative;
+	top: 2px;
+	left: -6px;
+}

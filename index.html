@@ -329,7 +329,7 @@
 
 					<!-- 到订单 -->  
 					                <!-- 项目标题  现价 -->
-	                <a href="#order_form" v-on:click="go_order_form(itm.ti,itm.fpri)">
+	                <a href="#order_form" v-on:click="go_order_form(itm.ti,itm.fpri,itm.id)">
 	                	<div style="color: red;">立即抢购</div>
 	                </a>
 				</div>
@@ -353,7 +353,7 @@
                 <div class="image_text">   
 
                                         <!-- 传到图文详情  -->
-					<a href="#image_text" v-on:click="clickUrl(itm.weburl,itm.fpri,itm.pri,itm.ti)">
+					<a href="#image_text" v-on:click="clickUrl(itm.weburl,itm.fpri,itm.pri,itm.ti,itm.id)">
 					                   <!-- html     原价        标题 -->
 					查看商品图文详情
 					
@@ -410,7 +410,7 @@
             	<span>{{itm.pri}}</span>
 
             	                      <!-- 标题 单价  传过来 传出去 -->
-                <a href="#order_form" v-on:click="go_order_form(itm.ti,itm.fpri)">立即抢购</a>
+                <a href="#order_form" v-on:click="go_order_form(itm.ti,itm.fpri,itm.id)">立即抢购</a>
             </li> 
             
         </div>
@@ -453,11 +453,12 @@
 
 
 <!-- 模板七 搜索 结果 -->
-<script type="text/template" id="seach_result">
+<!-- <script type="text/template" id="seach_result">
 <div class="seach_result-page">
+	非道弘人通过你好
 	<div class="product_top">搜索结果
     
-        <!-- 返回上一层 -->
+        
 	    <a href="javascript:;" id="" onclick="javascript:history.back(-1);">
 	    	<img src="img/nav_back.png" class="back" >
 
@@ -474,7 +475,7 @@
 		</li>
 	</div>
 
-    <!-- 搜索结果 商品列表  去往商品详情-->
+    
     <div class="re_all">
 		<li v-for="itm in seach_data" v-on:click="click_seach_Index(itm.id)">
 		    <a href="#/product/{{itm.id}}">
@@ -495,7 +496,16 @@
 	</div>
 
 </div>
+</script> -->
+
+<script type="text/template" id="seach_result">
+	<div>
+		<div>fdhetjytnnfgv 非道弘人通过你好</div>
+	</div>
 </script>
+
+
+
 
 <!-- // 模板五 生成订单 从图文、商品详情 来到  生成订单-->
 <script type="text/template" id="order_form">
@@ -567,8 +577,8 @@
     	<div class="bind">绑定新手机号</div>
     </div> -->
 
-    <!-- 项目 单价 数量 总价 -->
-    <a href="#payment" v-on:click="go_pay(order_form[0].orti,order_form[0].pfri,order_form[0].num,order_form[0].all)">
+    <!-- 项目 单价 数量 总价 提交订单-->
+    <a href="#payment" v-on:click="go_pay(order_form[0].orti,order_form[0].pfri,order_form[0].num,order_form[0].all,order_form[0].id)">
 	    <div class="submit">提交订单</div>
     </a>
 </div>

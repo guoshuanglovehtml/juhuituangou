@@ -5,8 +5,7 @@
     <title>待支付</title>
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/no payment.css">
-    <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="../js/no payment.js"></script>
+    
     
 </head>
 <body>
@@ -19,15 +18,53 @@
             <img src="../img/nav_icon.png">
         </div>
 
-        <div class="my">待支付</div>
+        <div class="my">待付款</div>
     </div>
 
 
     <div class="drag_to_refresh"></div>
     <div class="refresh">正在刷新中...</div>
-    <div class="drag">
-        <img src="../img/order_null.png">
-        <p>暂无数据...</p>
+    <div  id="app">
+        <router-view></router-view>
+        <!-- <router-link to="/details"></router-link> -->
     </div>
+
+
+    <template id="home">
+    
+        <div class="home">
+            <div class="list">
+                <ul>
+                    <li v-for="i in list">
+                        <div class="content">
+                            <img :src="'http://juhuituan.boguyuan.com/juhuituan'+i.img">
+                            <div class="explain"></div>
+                        </div>
+
+                        <div class="choice">
+                            <div class="cancel"><img src="../img/cancel.png" align="middle">取消订单</div>
+                            <div class="sure">
+                                <div>
+                                    <img src="../img/must_pay.png">立即付款
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+
+            <div class="noData" v-show="!list">
+                <img src="../img/order_null.png">
+                <p>暂无数据...</p>
+            </div>
+        </div>
+    </template>
+
+    <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/vue-router.js"></script>
+    <script src="../js/no payment.js"></script>
 </body>
 </html>

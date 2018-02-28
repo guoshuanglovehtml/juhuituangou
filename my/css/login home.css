@@ -57,6 +57,7 @@ body{
 	position: absolute;
 	top: 5em;
 	left: 30%;
+	
 }
 .user_top_bg .login_reg_icon img{
 	width: 100%;
@@ -93,10 +94,25 @@ body{
 	width: 100%;
 	height: 2.5em;
 	float: left;
+	position: relative;
 }	
 .order ul li .pay img{
 	height: 2.5em;
+	position: absolute;
+	left: 30%;
 
+}
+.pay span{
+	position: absolute;
+	left: 54%;
+	top: -4%;
+	background-color: red;
+	color: #fff;
+
+	display: none;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
 }
 
 .order ul li.xian{
@@ -146,20 +162,36 @@ body{
 	width:40%;
 	float: left;
 	font-size: 1.2em;
-	line-height: 3.2em
+	line-height: 3.2em;
+	position:relative;
 }
 @media screen and (min-width:768px){
 .forn ul li p{
 	width:40%;
 	float: left;
 	font-size: 1.5em;
-	line-height: 3.2em
+	line-height: 3.2em;
+	position:relative;
 	   }   
 }
 .forn ul li span{
 	width: 20%;
 	height: 3em;
 	float: right;
+}
+
+.forn li span.all,.forn li span.collect{
+	/*float: left;*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: red;
+	color: #fff;
+
+	display: block;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
 }
 
 .forn ul li span img{
