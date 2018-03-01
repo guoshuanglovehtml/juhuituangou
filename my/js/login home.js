@@ -4,7 +4,7 @@ $.ajax({
     dataType:"json",
     success:function (data) 
     {
-        // console.log(data.data);
+        console.log(data.data);
         if (data.data.dfknum!=0) {
             $(".dfknum").text(data.data.dfknum).show();
         }

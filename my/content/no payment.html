@@ -31,22 +31,46 @@
 
 
     <template id="home">
-    
         <div class="home">
+            <!-- 删除蒙版 -->
+            <div class="whetherDelect">
+                <div class="box">
+                    <div class="warn">提醒</div>
+                    <div class="judge">确定取消本次订单？</div>
+                    <div class="choice2">
+                        <span class="cancel" v-on:click="cancel()">取消</span>
+                        <span class="sure" v-on:click="sure()">确定</span>
+
+                    </div>
+                </div>
+            </div>
+
             <div class="list">
                 <ul>
                     <li v-for="i in list">
                         <div class="content">
                             <img :src="'http://juhuituan.boguyuan.com/juhuituan'+i.img">
-                            <div class="explain"></div>
+                            <div class="explain">
+                                <p class="ti">{{i.ti}}</p>
+                                <p class="fpri">总价:{{i.fpri}} &nbsp; &nbsp;    数量:{{i.num}}</p>
+                                <p class="time">截止时间: {{i.dt}}</p>
+                                <img src="../img/arrow_icon.png">
+
+                            </div>
                         </div>
 
                         <div class="choice">
-                            <div class="cancel"><img src="../img/cancel.png" align="middle">取消订单</div>
+                            <div class="cancel" v-on:click="cancelForm(i.id)">
+                                <img src="../img/cancel.png" align="middle">
+                                取消订单
+                            </div>
+
                             <div class="sure">
-                                <div>
-                                    <img src="../img/must_pay.png">立即付款
-                                </div>
+                                <router-link to="/pay">
+                                    <div v-on:click="go_pay(i.id,i.inid,i.ti,i.fpri,i.num)">
+                                        <img src="../img/must_pay.png">立即付款
+                                    </div>
+                                </router-link>
                             </div>
 
                         </div>
@@ -61,6 +85,21 @@
             </div>
         </div>
     </template>
+
+    <!-- 支付 -->
+    <template id="pay">
+        <div class="pay">
+            <div>
+                <!-- <p>{{id}}</p> -->
+                <p>主题:{{ti}}</p>
+                <p>单价：{{price}}</p>
+                <p>数量：{{num}}</p>
+                <p>总价：{{all_price}}</p>
+
+            </div>
+        </div>
+    </template>
+
 
     <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
     <script src="../js/vue.min.js"></script>

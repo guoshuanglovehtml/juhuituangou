@@ -37,7 +37,7 @@ function homeData(that) {
 		// async:false, 
 		success:function (data) 
 		{	
-			// console.log(data.data.items);
+			console.log(data.data.items);
 			that.list = data.data.items;
 			// console.log(that.list);
 		}
@@ -46,7 +46,7 @@ function homeData(that) {
 
 function detailsData(that,id) {
 	// console.log(that );
-	console.log( id);
+	// console.log( id);
 
 	$.ajax({
 		type:"get",
@@ -66,7 +66,7 @@ function detailsData(that,id) {
 }
 
 
-var Home = {
+var home = {
 	template:"#home",
 	data:function () {
 		return{
@@ -114,6 +114,7 @@ var Home = {
 			// console.log(id);
 			// 
 			xq_id = id;
+			$(".my").text("团购详情");
 		}
 	}
 };
@@ -127,7 +128,7 @@ var details = {
 		}
 	},
 	created:function (argument) {
-		// console.log(xq_id);
+		console.log(xq_id);
 		setTimeout(function () {
 			console.log(xq_id);
 			detailsData(this,xq_id);
@@ -137,7 +138,7 @@ var details = {
 
 var router = new VueRouter({
   	"routes" :[
-		{path:"/", component: Home},
+		{path:"/", component: home},
 		{path:"/details",component:details}
 	]
 });
