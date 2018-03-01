@@ -1,7 +1,7 @@
 // 返回上一页
 $(function(){
     $(".right").click(function(){
-        history.go(-1);
+        // history.go(-1);
         // console.log("xx")
     })
 });
@@ -78,6 +78,9 @@ var home = {
             console.log(num)
 
             $(".my").text("确认支付");
+        },
+        go_details:function (id) {
+            de_id = id;
         }
 
     },
@@ -104,10 +107,29 @@ var pay = {
     }
 }
 
+
+var de_id;
+var details = {
+    template:"#details",
+    created:function () {
+        // console.log("data");
+
+        $.ajax({
+            type:"get",
+            url:"http://juhuituan.boguyuan.com/juhuituan/reqData?action=viewOrd&acode=1&uid=25177&id="+de_id,
+            dataType:"json",
+            success:function (data) {
+                console.log(data.data);
+            }
+        });
+    }
+}
+
 var router = new VueRouter({
     "routes" :[
         { path:"/", component: home},
         { path:"/pay", component: pay},
+        { path:"/details", component: details},
 
     ]
 });

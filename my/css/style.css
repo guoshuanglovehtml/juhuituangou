@@ -8,7 +8,9 @@ html, body, div, span, object, h1, h2, h3, h4, h5, h6, p, a, address, cite, del,
 label, table, tr, th, td,caption, tbody, tfoot, thead, article, aside, details, summary, figure, figcaption, footer, header, menu, nav,
 section, audio, input, select, textarea {margin:0;padding:0;border:0;}
 header,footer,nav,section,menu,article,aside { display:block;}
-
+*{
+	box-sizing: border-box;
+}
 body { 
 	font-family: '微软雅黑'; 
 	/*color:#666; */
@@ -53,7 +55,7 @@ input,input[type="button"],input[type="submit"]，input[type="reset"]{-webkit-ap
     width: 100%;
 	height: 3rem;
 	/*z-index: 1000;*/
-	display: inline-block;
+	/*display: inline-block;*/
     color:white;
     background: #FD9395;
    
@@ -100,33 +102,42 @@ input,input[type="button"],input[type="submit"]，input[type="reset"]{-webkit-ap
 .favor-header-bar{
 	background-color: #fff;
 	height:3rem;
-	margin-top: -1.5%;
+	margin-top: 0;
 	line-height: 3rem;
+	margin-bottom: ;
 }
 .favor-header-bar li{
-	display: block;
+	/*display: block;*/
 	width:50%;
 	text-align: center;
 	float: left;
-	margin-left:-1px;
+	/*margin-left:-1px;*/
 	height:2.2rem;
-	line-height: 2.2rem;
-	margin-top:0.55rem;
-	border-right: 1px solid #e1e1e1;
+	/*line-height: 2.2rem;*/
+	/*margin-top:0.55rem;*/
+	
 	position: relative;
+	padding-bottom: 0.12rem;
+}
+
+.tabs#tabs li{
+	float: left;
+	/*padding: 10px;*/
 }
 .favor-header-bar a{
 	font-size:1.1rem;
 	color:#FD9395;
 	display:block;
-	padding-bottom: 0.12rem;
+	
 	width:100%;
-	margin:0 auto;
+	/*height: 100%;*/
+	/*margin:0 auto;*/
+	border-right: 1px solid #e1e1e1;
 }
-.favor-header-bar li:last-child{
+.favor-header-bar li:last-child a{
 	border-right:none;
 }
-.favor-header-bar li.default a{
+.favor-header-bar li.default {
 	/*color:#FD9395;*/
 	border-bottom: 2px solid #fd6600;
 }
@@ -184,10 +195,13 @@ div.home li{
 	/*width: 100%;*/
 	position: relative;
 	background-color: #fff;
-	padding: 10px;
+	/*padding: 10px;*/
 	
 	margin-bottom: 10px;
 	height: 100%;
+}
+.list{
+	padding: 10px;
 }
 
 li.list img{

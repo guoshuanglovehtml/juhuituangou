@@ -14,50 +14,21 @@
     <title>收藏</title>
 </head>
 <body>
-    <!-- 头部开始 -->
-     <div class="header">
-        <div class="right">
-            <img src="../img/nav_back.png">
-        </div>
-
-        <div class="nav_icon">
-            <img src="../img/nav_icon.png">
-        </div>
-
-        <div class="my">收藏</div>
-    </div>
-   <!-- 头部结束 -->
-
-
-    <!-- 切换栏开始 -->
-    <header class="favor-header-bar">
-        <ul class="tabs">
-            <li class="default"><a href="javascript:void(0);" id="btn1" hidefocus="true">团购收藏</a></li>
-
-            <li><a href="javascript:void(0);" id="btn2" hidefocus="true">商家收藏</a></li>
-        </ul>
-    </header>
-    <!-- 切换栏结束 -->
+    
   
-    <!--  刷新开始 -->
-     <div class="drag_to_refresh"></div>
-     <div class="refresh">正在刷新中...</div>
-     <!-- 刷新结束 -->
+   
 
 
    <!-- 内容开始 -->
-    <div class="swiper-container favor-list drag">
+    <!-- <div class="swiper-container favor-list drag"> -->
         
-        <div class="swiper-slide group" id="app" >
+        <div class="" id="app" >
             <router-view></router-view>
         </div>
 
-        <div class="swiper-slide merchant">
-            <img src="../img/fav_null.png">
-            <p>暂无数据</p>
-        </div>          
+                
         
-    </div>
+    <!-- </div> -->
     <!--    内容结束 -->
     
     
@@ -75,34 +46,72 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- 头部开始 -->
+            <div class="header">
+                <a href="javascript:;"  onclick="javascript:history.back(-1);">
+                    <div class="right">
+                        <img src="../img/nav_back.png">
+                    </div>
+                </a>
 
-            <ul> 
-                <li v-for="i in list" class="list" v-on:click="go_details(i.id)">
-                    <router-link to="/details">
-                        <img v-bind:src="'http://juhuituan.boguyuan.com/juhuituan'+i.img">
+                <div class="nav_icon">
+                    <img src="../img/nav_icon.png">
+                </div>
 
-                        <div class="content">
+                <div class="my">收藏</div>
+            </div>
+            <!-- 头部结束 -->
 
-                            <span class="listTi">{{i.ti}}</span>
-                            <div class="delect"  v-on:click.prevent="delect(i.id)">
-                                <img src="../img/clear_icon.png" align="middle">删除
+
+            <!-- 切换栏开始 -->
+            <header class="favor-header-bar">
+                <ul class="tabs" id="tabs">
+                    <li class="default" v-on:click="btn1()" id="btn1">
+                    <a href="javascript:void(0);"  hidefocus="true">团购收藏</a>
+                    </li>
+
+                    <li v-on:click="btn2()" id="btn2">
+                    <a href="javascript:void(0);"  hidefocus="true">商家收藏</a>
+                    </li>
+                </ul>
+            </header>
+            <!-- 切换栏结束 -->
+            
+            <div class="swiper-slide group" id="" >
+                <ul> 
+                    <li v-for="i in list" class="list" v-on:click="go_details(i.id)">
+                        <router-link to="/details">
+                            <img v-bind:src="'http://juhuituan.boguyuan.com/juhuituan'+i.img">
+
+                            <div class="content">
+
+                                <span class="listTi">{{i.ti}}</span>
+                                <div class="delect"  v-on:click.prevent="delect(i.id)">
+                                    <img src="../img/clear_icon.png" align="middle">删除
+                                </div>
+                                <span class="con">{{i.con}}</span>
+
+                                <div class="price">
+                                    <span class="priceNow">￥{{i.fpri}}</span>/
+                                    <span class="priceOld">{{i.pri}}</span>
+                                </div>
+
+                                <span class="num">{{i.num}}人</span>
+                                
                             </div>
-                            <span class="con">{{i.con}}</span>
+                        </router-link>
+                    </li>
+                </ul>
+                <p class="more" v-show="list">查看更多</p>
 
-                            <div class="price">
-                                <span class="priceNow">￥{{i.fpri}}</span>/
-                                <span class="priceOld">{{i.pri}}</span>
-                            </div>
+                <div class=" noData" v-show="!list">
+                    <img src="../img/fav_null.png">
+                    <p>暂无数据</p>
+                </div>
+            </div>
 
-                            <span class="num">{{i.num}}人</span>
-                            
-                        </div>
-                    </router-link>
-                </li>
-            </ul>
-            <p class="more" v-show="list">查看更多</p>
-
-            <div class="swiper-slide noData" v-show="!list">
+            <div class="swiper-slide merchant">
                 <img src="../img/fav_null.png">
                 <p>暂无数据</p>
             </div>  
@@ -111,7 +120,19 @@
 
     <template id="details">
         <div class="details">
-            <div>details</div>
+            <div class="header">
+                <a href="javascript:;"  onclick="javascript:history.back(-1);">
+                    <div class="right">
+                        <img src="../img/nav_back.png">
+                    </div>
+                </a>
+
+                <div class="nav_icon">
+                    <img src="../img/nav_icon.png">
+                </div>
+
+                <div class="my">团购详情</div>
+            </div>
         </div>
     </template>
 

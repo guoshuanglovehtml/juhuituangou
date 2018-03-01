@@ -1,28 +1,19 @@
 // 返回上一页
 $(function(){
     $(".right").click(function(){
-        history.go(-1);
+        // history.go(-1);
     })
 })
 
 // 收藏 切换
 $("#btn1").click(function () {
     // body...
-    $(".group").show();
-    $(".merchant").hide();
-
-    $(this).css("border-bottom","2px solid #fd6600");
-    $("#btn2").css("border-bottom","#fff");
+    
 });
 
 $("#btn2").click(function () {
     // body...
-    $(".group").hide();
-    $(".merchant").show();
-
-
-    $(this).css("border-bottom","2px solid #fd6600");
-    $("#btn1").css("border-bottom","none");
+    
 })
 
 
@@ -37,7 +28,7 @@ function homeData(that) {
 		// async:false, 
 		success:function (data) 
 		{	
-			console.log(data.data.items);
+			// console.log(data.data.items);
 			that.list = data.data.items;
 			// console.log(that.list);
 		}
@@ -50,12 +41,15 @@ function detailsData(that,id) {
 
 	$.ajax({
 		type:"get",
-		url:"http://juhuituan.boguyuan.com/juhuituan/reqData?action=viewPro&acode=1&uid=25177&id="+id,
+		url:"http://juhuituan.boguyuan.com/juhuituan/reqData?action=viewOrd&acode=1&uid=25177&id="+id,
+		// 订单详情viewOrd 
+		// // 商品详情 viewPro 数量总价传过来   
+
 		dataType:"json",
 		// async:false, 
 		success:function (data) 
 		{	
-			console.log(data);
+			console.log(data.data);
 			// that.data = data.data.items;
 		},
 		error:function (err) {
@@ -113,13 +107,30 @@ var home = {
 			// body...
 			// console.log(id);
 			// 
-			xq_id = id;
-			$(".my").text("团购详情");
+			de_id = id;
+			// $(".my").text("团购详情");
+		},
+		btn1:function (argument) {
+			$(".group").show();
+    		$(".merchant").hide();
+
+    		$("#btn1").css("border-bottom","2px solid #fd6600");
+    		$("#btn2").css("border-bottom","#fff");
+		},
+
+		btn2:function (argument) {
+			$(".group").hide();
+    		$(".merchant").show();
+
+
+    		$("#btn2").css("border-bottom","2px solid #fd6600");
+    		$("#btn1").css("border-bottom","none");
 		}
+
 	}
 };
 
-var xq_id;
+var de_id;
 var details = {
 	template:"#details",
 	data:function (argument) {
@@ -128,10 +139,10 @@ var details = {
 		}
 	},
 	created:function (argument) {
-		console.log(xq_id);
+		// console.log(xq_id);
 		setTimeout(function () {
-			console.log(xq_id);
-			detailsData(this,xq_id);
+			// console.log(de_id);
+			detailsData(this,de_id);
 		},10);
 	}
 }

@@ -482,8 +482,6 @@
 	    },
 	    created:function () 
 		{   
-			
-			// console.log(Index_);
 
 			var com_index = Index_;
             
@@ -500,7 +498,7 @@
 	                    
 		                var proArry = [];
 						proArry.push(d2);
-						console.log(proArry);
+						// console.log(proArry);
 
 						that.details = proArry;
 					}
@@ -511,12 +509,7 @@
 				xhr.open("post",url,true);
 				xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 				xhr.send("action=viewPro&acode=1&uid=25177&id="+com_index);	
-			// };
-
-			// 自动展示
-			// comdity_data();
-            
-
+			// };    
 		},
 
 		methods:{
@@ -616,7 +609,6 @@
     	},
     	methods:{
     		click_seach(){
-
     			// 搜索框
     			var seach_input = $("#seach_input");
     			// console.log(seach_input);
@@ -625,27 +617,16 @@
     			var value = seach_input.val();
     			// console.log(value);
 
-
     			// 传参出去 区搜索 搜索结果
     			con = value;
     		},
     		delet(){
-    				// 3、清空搜索框
-				
-
-				$('#delet').on('click',function () 
-				{   
-					
-					
+    			// 3、清空搜索框
+				// $('#delet').on('click',function () 
+				// {   
 					$("#seach_input").val("");
-
-				});
-    		},
-
-    		// bug
-   //  		back(){
-			// 	history.back();
-			// }
+				// });
+    		}
 
     	}
     });
@@ -661,10 +642,7 @@
 		{
 			return {
 				seach_data:"",
-				keyword:[
-    			{
-    				txt:con
-    			}]
+				keyword:con	
 			}
 		},
 
@@ -672,18 +650,22 @@
 		{
 			var that = this;
 			// console.log(con);
-
-			$.ajax({
-				type:"get",
-				url:"http://juhuituan.boguyuan.com/juhuituan/reqData?"+
-				"action=search&acode=1&con="+con,
-				dataType:"json",
-				success:function (data) 
-				{
-					console.log(data.data.items);
-					// that.seach_data = data.data.items;
-				}
-			});
+			if (con!="") {
+				$.ajax({
+					type:"get",
+					url:"http://juhuituan.boguyuan.com/juhuituan/reqData?"+
+					"action=search&acode=1&con="+con,
+					dataType:"json",
+					success:function (data) 
+					{
+						// console.log(data.data.items);
+						that.seach_data = data.data.items;
+					}
+				});
+			}
+			else{
+				// that.keyword = "xx"
+			}
 		},
 
 		// 传入  商品详情

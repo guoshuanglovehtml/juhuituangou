@@ -9,17 +9,7 @@
     
 </head>
 <body>
-    <div class="header">
-        <div class="right">
-            <img src="../img/nav_back.png">
-        </div>
-
-        <div class="nav_icon">
-            <img src="../img/nav_icon.png">
-        </div>
-
-        <div class="my">待付款</div>
-    </div>
+    
 
 
     <div class="drag_to_refresh"></div>
@@ -32,6 +22,20 @@
 
     <template id="home">
         <div class="home">
+            <div class="header">
+                <a href="javascript:;"  onclick="javascript:history.back(-1);">
+                    <div class="right">
+                        <img src="../img/nav_back.png">
+                    </div>
+                </a>
+
+                <div class="nav_icon">
+                    <img src="../img/nav_icon.png">
+                </div>
+
+                <div class="my">待付款</div>
+            </div>
+
             <!-- 删除蒙版 -->
             <div class="whetherDelect">
                 <div class="box">
@@ -48,16 +52,18 @@
             <div class="list">
                 <ul>
                     <li v-for="i in list">
-                        <div class="content">
-                            <img :src="'http://juhuituan.boguyuan.com/juhuituan'+i.img">
-                            <div class="explain">
-                                <p class="ti">{{i.ti}}</p>
-                                <p class="fpri">总价:{{i.fpri}} &nbsp; &nbsp;    数量:{{i.num}}</p>
-                                <p class="time">截止时间: {{i.dt}}</p>
-                                <img src="../img/arrow_icon.png">
+                        <router-link to="/details">
+                            <div class="content" v-on:click="go_details(i.id)">
+                                <img :src="'http://juhuituan.boguyuan.com/juhuituan'+i.img">
+                                <div class="explain">
+                                    <p class="ti">{{i.ti}}</p>
+                                    <p class="fpri">总价:{{i.fpri}} &nbsp; &nbsp;    数量:{{i.num}}</p>
+                                    <p class="time">截止时间: {{i.dt}}</p>
+                                    <img src="../img/arrow_icon.png">
 
+                                </div>
                             </div>
-                        </div>
+                        </router-link>
 
                         <div class="choice">
                             <div class="cancel" v-on:click="cancelForm(i.id)">
@@ -99,6 +105,27 @@
             </div>
         </div>
     </template>
+    
+    <!-- 详情 -->
+    <template id="details">
+        <div class="details">
+            <div class="header ">
+                <a href="javascript:;"  onclick="javascript:history.back(-1);">
+                    <div class="right">
+                        <img src="../img/nav_back.png">
+                    </div>
+                </a>
+
+                <div class="nav_icon">
+                    <img src="../img/nav_icon.png">
+                </div>
+
+                <div class="my">订单详情</div>
+            </div>
+            <div>rehgtrhtr</div>
+        </div>
+    </template>
+
 
 
     <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>

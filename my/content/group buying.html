@@ -16,9 +16,11 @@
     <template id="home">
         <div class="home">
             <div class="header">
-                <div class="right">
-                    <img src="../img/nav_back.png">
-                </div>
+                <a href="javascript:;"  onclick="javascript:history.back(-1);">
+                    <div class="right">
+                        <img src="../img/nav_back.png">
+                    </div>
+                </a>
 
                 <div class="nav_icon">
                     <img src="../img/nav_icon.png">
@@ -28,15 +30,50 @@
             </div>
 
             <div class="list"> 
-                <ul></ul>
+                <ul>
+                    <router-link to="/details">
+                        <li v-for="i in list" class="content" v-on:click="go_details(i.inid)">
+                            <img :src="'http://juhuituan.boguyuan.com/juhuituan'+i.img">
+
+                            <div class="explain">
+                                <p class="ti">{{i.ti}}</p>
+                                <p class="fpri">总价:{{i.fpri}} &nbsp; &nbsp;    数量:{{i.num}}</p>
+                                <p class="time">截止时间: {{i.dt}}</p>
+                                <img src="../img/arrow_icon.png">
+
+                            </div>
+                        </li>
+                    </router-link>
+                </ul>
             </div>
             
-            <div class="noData">
+            <div class="noData" v-show="!list">
                 <img src="../img/order_null.png">
                 <p>暂无数据...</p>
             </div>
         </div>
     </template>
+    
+    <!-- 详情 -->
+    <template id="details">
+        <div class="details">
+            <div class="header ">
+                <a href="javascript:;"  onclick="javascript:history.back(-1);">
+                    <div class="right">
+                        <img src="../img/nav_back.png">
+                    </div>
+                </a>
+
+                <div class="nav_icon">
+                    <img src="../img/nav_icon.png">
+                </div>
+
+                <div class="my">订单详情</div>
+            </div>
+            <div>rehgtrhtr</div>
+        </div>
+    </template>
+
 
     <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
     <script src="../js/vue.min.js"></script>

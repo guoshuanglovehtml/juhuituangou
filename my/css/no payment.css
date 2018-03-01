@@ -88,15 +88,16 @@ body{
 
 
 /*列表*/
-.home{
+.home1{
 	padding: 10px;
 }
 .noData{
 	width: 100%;
 	text-align: center;
+	margin-top: 40%;
 }
 div.list{
-
+	padding: 10px;
 }
 
 

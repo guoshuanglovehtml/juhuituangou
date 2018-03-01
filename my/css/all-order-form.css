@@ -1,4 +1,60 @@
 .noData{
 	width: 100%;
 	text-align: center;
+	margin-top: 40%;
+}
+
+#home div.home{
+
+}
+
+div.list{
+	padding: 10px;
+}
+
+.list li.content{
+	background-color: #fff;
+	padding: 10px;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+.content img{
+	width: 36%;
+}
+
+.content div.explain{
+	width: 61%;
+	position: absolute;
+	right: 0;
+	top: 10px;
+	/*border: */
+	height: 100%;
+	color: #666;
+}
+
+div.explain p{
+	
+}
+
+.explain .ti{
+	/*font-weight: bold;*/
+	font-size: 20px;
+}
+
+.explain  .fpri{
+	position: absolute;
+	top: 28%;
+}
+
+.explain  .time{
+	position: absolute;
+	bottom: 30px;
+}
+
+div.explain img{
+	position: absolute;
+	right: 10px;
+	top: 35%;
+	width: 20px;
 }
