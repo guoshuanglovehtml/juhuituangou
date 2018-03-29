@@ -85,7 +85,6 @@
                             <img v-bind:src="'http://juhuituan.boguyuan.com/juhuituan'+i.img">
 
                             <div class="content">
-
                                 <span class="listTi">{{i.ti}}</span>
                                 <div class="delect"  v-on:click.prevent="delect(i.id)">
                                     <img src="../img/clear_icon.png" align="middle">删除
@@ -96,9 +95,7 @@
                                     <span class="priceNow">￥{{i.fpri}}</span>/
                                     <span class="priceOld">{{i.pri}}</span>
                                 </div>
-
                                 <span class="num">{{i.num}}人</span>
-                                
                             </div>
                         </router-link>
                     </li>

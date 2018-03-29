@@ -128,7 +128,7 @@ img{
 
 .banner li{
 	width: 50%;
-	float: left;
+	/*float: left;*/
 }
 
 .banner li img{
@@ -495,24 +495,18 @@ ul.cate_bg{
 
 
 .cate_bg>div.first>li{
-	/*border-bottom: 1px red solid;*/
 	position: relative;
-	/*padding: 2px;*/
 	height: 40px;
-	/*line-height: 40px;*/
 	padding: 4px;
 }
 
-/*73*/
 .cate_bg .first li img{
 	margin-left: 10%;
 	margin-right: 10%;
 	display: inline-block;
-	/*margin-left: 16%;*/
 	margin-right: 10%;
 	width: 26px;
 	margin-top: 3px;
-
 }
 
 .cate_bg .first li span{
@@ -1442,33 +1436,28 @@ li.project {
 .more_cont>li img{
 	display: inline-block;
 	width: 36px;
-	/*z-index: 1000;*/
 }
 
 /*信息内容 二级分类*/
 .con_news{
-	/*height: 200px;*/
-	/*border: 1px red solid;*/
 	margin: 10px;
 	margin-bottom: 0;
 
 	position: relative;
 	overflow: hidden;
-
 }
 
 .con_news a{
 	display: block;
 	float: left;
 	width: 24%;
+
 	text-align: center;
 	background-color: #fff;
-	/*width: 50px;*/
+	
 	height: 30px;
 	line-height: 30px;
-	/*position: absolute;
-	top: 0;
-	left: 0;*/
+	
 	margin-left: 2px;
 	margin-bottom: 2px;
 }

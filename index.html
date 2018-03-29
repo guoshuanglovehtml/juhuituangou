@@ -321,14 +321,10 @@
 	    	<li v-for="itm in details">
 				<img v-bind:src="'http://juhuituan.boguyuan.com/juhuituan'+itm.img">
 				
-
 				<div class="promptly">
 				    <span>￥{{itm.fpri}}</span>
 				    <span>/</span>
 				    <span>{{itm.pri}}</span>
-
-					<!-- 到订单 -->  
-					                <!-- 项目标题  现价 -->
 	                <a href="#order_form" v-on:click="go_order_form(itm.ti,itm.fpri,itm.id)">
 	                	<div style="color: red;">立即抢购</div>
 	                </a>
@@ -643,19 +639,14 @@
 	<div class="more_cont">
 		<li v-for="(itm,index) in all">
 			<img v-bind:src="itm.img" align="center" >
-			
 			<span>{{itm.ti}}</span>
-			<!-- <span>线</span> -->
+		
 			<div class="con_news" >  
-                    <!-- // 小类              数量 -->
-                    <!-- href="#list" -->
-                    <a v-on:click="goAllsort(itm.id,itm.img,itm.ti,i.id,i.ti)" 
+                    <a v-on:click="goAllsort(itm.id,itm.img,itm.ti,i.id,i.ti)"
                     v-for="i in itm.typeItem"
                     href="#list">
                     	{{i.ti}}   
                     </a>
-                    
-                </a>
 			</div>
 		</li>
 	</div>

@@ -47,7 +47,7 @@
 				dataType:"json",
 				success:function (data) 
 				{
-					// console.log(data.data.items[0]);
+					console.log(data.data.items);
 					// that.banner[0] = data.data.items[0];
 					that.banner = data.data.items;
 
@@ -498,7 +498,7 @@
 	                    
 		                var proArry = [];
 						proArry.push(d2);
-						// console.log(proArry);
+						console.log(proArry);
 
 						that.details = proArry;
 					}
@@ -649,7 +649,6 @@
 		created:function (argument) 
 		{
 			var that = this;
-			// console.log(con);
 			if (con!="") {
 				$.ajax({
 					type:"get",
@@ -657,8 +656,8 @@
 					"action=search&acode=1&con="+con,
 					dataType:"json",
 					success:function (data) 
-					{
-						// console.log(data.data.items);
+					{	
+						console.log(data.data)
 						that.seach_data = data.data.items;
 					}
 				});
@@ -828,6 +827,23 @@
     	{
     		// 分类信息
     		var that = this;
+    		$.ajax({
+				type:"get",
+				dataType:"json",
+				url:"http://juhuituan.boguyuan.com/juhuituan/reqData?action=allCate&acode=1&uid=25177&type=4",
+				success:function (data) 
+				{
+					that.all = data.data.parentItem;
+				}
+			})
+
+
+
+
+
+
+
+
     		var d3;
             var news = new XMLHttpRequest();
             news.onreadystatechange = function (argument) 
@@ -863,7 +879,7 @@
     			list_id = sId;// 大类id  应是小类
 
     			$.ajax({
-    				post:"get",
+    				type:"get",
     				dataType:"json",
     				url:"http://juhuituan.boguyuan.com/juhuituan/reqData?action=listPro&acode=1&uid=25177&type=3&id="+sId,
     				success:function (data) 
